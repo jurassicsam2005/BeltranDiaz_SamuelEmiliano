@@ -1,0 +1,6 @@
+#Haz un programa en Python que pida tres numeros y muestre si los tres son iguales (solo mostrando True o False)
+num1 = float(input("Ingrese el primer numero: "))
+num2 = float(input("Ingrese el segundo numero: "))
+num3 = float(input("Ingrese el tercer numero: "))
+son_iguales = (num1 == num2 == num3)
+print(son_iguales)
