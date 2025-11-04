@@ -1,23 +1,27 @@
-#Haz un programa que calcule cuántos números del 1 al 100 son divisibles entre 3 y entre 5.
+# Programa que calcula cuántos números del 1 al 100 son divisibles entre 3 y entre 5.
 
-def contar_divisibles(inicio=1, fin=100):
-	"""Devuelve una tupla (cantidad_div3, cantidad_div5, cantidad_ambos).
+# Contadores para cada tipo de número
+div_por_3 = 0
+div_por_5 = 0
+div_por_ambos = 0
 
-	inicio, fin: rangos inclusivos.
-	"""
-	cantidad_div3 = sum(1 for n in range(inicio, fin + 1) if n % 3 == 0)
-	cantidad_div5 = sum(1 for n in range(inicio, fin + 1) if n % 5 == 0)
-	cantidad_ambos = sum(1 for n in range(inicio, fin + 1) if n % 3 == 0 and n % 5 == 0)
-	return cantidad_div3, cantidad_div5, cantidad_ambos
+# Revisar números del 1 al 100
+for numero in range(1, 101):
+    # Verificar divisibilidad por 3
+    if numero % 3 == 0:
+        div_por_3 = div_por_3 + 1
+    
+    # Verificar divisibilidad por 5
+    if numero % 5 == 0:
+        div_por_5 = div_por_5 + 1
+    
+    # Verificar divisibilidad por ambos
+    if numero % 3 == 0:
+        if numero % 5 == 0:
+            div_por_ambos = div_por_ambos + 1
 
-
-def main():
-	div3, div5, ambos = contar_divisibles(1, 100)
-	print(f"Números del 1 al 100 divisibles entre 3: {div3}")
-	print(f"Números del 1 al 100 divisibles entre 5: {div5}")
-	print(f"Números del 1 al 100 divisibles entre 3 y 5 (ambos): {ambos}")
-
-
-if __name__ == "__main__":
-	main()
+# Mostrar resultados
+print(f"Números divisibles entre 3: {div_por_3}")
+print(f"Números divisibles entre 5: {div_por_5}")
+print(f"Números divisibles entre 3 y 5: {div_por_ambos}")
 
