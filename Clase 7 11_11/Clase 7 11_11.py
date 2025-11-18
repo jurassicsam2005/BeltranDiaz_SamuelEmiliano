@@ -58,8 +58,8 @@
 # print(diccionario)
 
 # # Recorrer un diccionario 
-# for clave, valor in diccionario.items():
-#     print(f"{clave}: {valor}")
+# # for clave, valor in diccionario.items():
+# #     print(f"{clave}: {valor}")
 
 # #Ejercicio 1: Crea un diccionario vacio. Pide nombres y calificaciones de 5 alumnos y graduarlos en el diccionario, luego muestra su promedio
 # diccionario_alumnos = {}
@@ -74,7 +74,7 @@
 # print(diccionario_alumnos)
 
 # for calve, valor in diccionario_alumnos.items():
-#     print(f"La calificacion de {clave} es: {valor}")
+#     print(f"La calificacion de {clave} es: {valor}") 
 
 # suma_calificaciones = sum(diccionario_alumnos.values())
 # promedio = suma_calificaciones / len(diccionario_alumnos)

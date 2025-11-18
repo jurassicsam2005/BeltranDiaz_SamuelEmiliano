@@ -1,6 +1,4 @@
-# Haz un programa que pida "Nombre" y "Calificación". Almacena todos estos datos en un diccionario.
-# Posteriormente muestra: Promedio general, cantidad de aprobados y cantidad de reprobados.
-# Implementación: solo se usan ciclos (while y for) y la palabra clave 'in' — sin funciones (def).
+# Haz un programa que pida "Nombre" y "Calificación". Almacena todos estos datos en un diccionario. Posteriormente muestra: Promedio general, cantidad de aprobados y cantidad de reprobados.
 
 print("Ingrese nombres y calificaciones. Escriba 'Fin' como nombre para terminar.")
 

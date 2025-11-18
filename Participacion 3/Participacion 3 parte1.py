@@ -21,3 +21,5 @@ else:
 	print(f"Cantidad de nombres ingresados: {len(nombres)}")
 	print(f"Primero: {nombres[0]}")
 	print(f"Último: {nombres[-1]}")
+
+ 
