@@ -11,6 +11,8 @@ def mostrar_menu():
     print("5. Eliminar producto")
     print("6. Editar producto")
     print("7. Salir")
+    print("")
+    print("--------------------------------------------------")
 
 # Funcion para cargar el archivo json
 def cargar_archivo():
@@ -29,6 +31,9 @@ def guardar_en_archivo(lista):
 
 # Función para agregar un producto
 def agregar_producto(lista_productos=None):     #Se agrego "lista_productos=None" para que el programa siga trabajndo aunque la lista este vacia y no borre elemntos anteriores cuando se ingrese uno nuevo
+    print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
+    print("°°   AÑADIR NUEVO PRODUCTO   °°")
+    print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
     lista = cargar_archivo()  #carga la lista actual 
 
     #Ciclo while para que no se deje en blanco el nombre
@@ -96,20 +101,27 @@ def mostrar_productos(lista_productos=None):
 
     #Si aun no hay nada en la lista, solo se mostrara este mensaje y regresara al menu
     if not lista:
-        print("No hay productos en la lista")
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        print("XX  NO HAY PRODUCTOS EN ESTA LISTA  XX")
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
         return
     
     lista.sort(key=lambda x: x["nombre"].lower()) #Se usa el sort para ordenar alfabeticamente los productos con respecto al nombre del producto
-    print("Lista de productos")
+    print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
+    print("°°     LISTA DE PRODUCTOS    °°")
+    print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
     for producto in lista:
-        print(f"{producto['nombre']} - ID: {producto['ID']} - Precio: {producto['precio']} - Cantidad disponible: {producto['cantidad']} - Categoria: {producto['categoria']}") 
+        print(f"| {producto['nombre']} - ID: {producto['ID']} - Precio: {producto['precio']} - Cantidad disponible: {producto['cantidad']} - Categoria: {producto['categoria']}") 
+        print("|")
         
 # Función para buscar productos por nombre
 def buscar_producto(lista_productos=None):
     lista = cargar_archivo()
 
     if not lista:
-        print("No hay productos en la lista")
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        print("XX  NO HAY PRODUCTOS EN ESTA LISTA  XX")
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
         return
     
     while True:
@@ -129,7 +141,9 @@ def buscar_producto(lista_productos=None):
 def buscar_producto_id(lista_productos=None):
     lista = cargar_archivo()
     if not lista:
-        print("No hay productos en la lista")
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        print("XX  NO HAY PRODUCTOS EN ESTA LISTA  XX")
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
         return
     
     while True:
@@ -150,10 +164,14 @@ def eliminar_producto(lista_productos=None):
     lista = cargar_archivo()
 
     if not lista:
-        print("No hay productos en la lista")
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        print("XX  NO HAY PRODUCTOS EN ESTA LISTA  XX")
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
         return
     
-    print("Lista de productos disponibles.")
+    print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
+    print("°°     LISTA DE PRODUCTOS    °°")
+    print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
     for producto in lista:
         print(f"-{producto['nombre']}")
 
@@ -187,10 +205,14 @@ def editar_producto(lista_productos=None):
     lista = cargar_archivo()
 
     if not lista:
-        print("No hay productos en la lista")
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
+        print("XX  NO HAY PRODUCTOS EN ESTA LISTA  XX")
+        print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
         return
     
-    print("Lista de productos disponibles.")
+    print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
+    print("°°     LISTA DE PRODUCTOS    °°")
+    print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
     for producto in lista:
         print(f"-{producto['nombre']}") 
 
@@ -229,9 +251,16 @@ def editar_producto(lista_productos=None):
 
             if (valor_a_editar.lower() == "nombre"):
                 while True:
+                    repe = 0
                     nuevo_nombre = input("Ingresa el nuevo nombre del producto: ")
+                    for producto in lista:
+                        if producto['nombre'].lower() == nuevo_nombre.lower():
+                            repe = repe + 1
+
                     if (nuevo_nombre.strip() == ""):
                         print("Necesitas ingresar el nuevo nombre del producto. Intente de nuevo.")
+                    elif (repe != 0):
+                        print("Nombre de producto en uso")
                     else:
                         break
 
@@ -241,9 +270,16 @@ def editar_producto(lista_productos=None):
 
             elif (valor_a_editar.lower() == "id"):
                 while True:
+                    repe2 = 0
                     nuevo_id = input("Ingresa el nuevo ID del producto: ")
+                    for producto in lista:
+                        if producto['ID'].lower() == nuevo_id.lower():
+                            repe2 = 1
+
                     if (nuevo_id.strip() == ""):
                         print("Necesitas ingresar el nuevo ID del producto. Intente de nuevo.")
+                    elif (repe2 == 1):
+                        print("ID ya en uso. Intenta de nuevo")
                     else:
                         break
 

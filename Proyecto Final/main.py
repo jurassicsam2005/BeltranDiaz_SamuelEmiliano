@@ -4,6 +4,9 @@ from functions import *
 def _main_():
     lista_productos = []
     while True:
+        print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
+        print("°°        BIENVENIDO!        °°")
+        print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
         mostrar_menu()
         opcion = input("Seleccione una opción: ")
         if opcion == '1':
@@ -19,7 +22,9 @@ def _main_():
         elif opcion == '6':
             editar_producto(lista_productos)
         elif opcion == '7':
-            print("Saliendo del sistema...")
+            print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
+            print("°°   SALIENDO DEL SISTEMA    °°")
+            print("°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°")
             break
         else:
             print("Opción no válida. Por favor, intente de nuevo.")
